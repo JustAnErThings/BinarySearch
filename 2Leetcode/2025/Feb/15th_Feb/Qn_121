@@ -1,0 +1,22 @@
+========= Question=============
+https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+
+=========Code=================
+
+class Solution {
+    public int maxProfit(int[] prices) {
+        int n = prices.length;
+        int mp = 0;
+        int bestDay = prices[0];
+
+        for(int i=1; i<n; i++){
+            if(prices[i]>bestDay){
+                int profit = prices[i]-bestDay;
+                mp = Math.max(mp, profit);
+            }
+             bestDay = Math.min(bestDay, prices[i]);
+        }
+        return mp;
+       
+    }
+}
